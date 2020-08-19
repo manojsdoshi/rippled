@@ -879,12 +879,6 @@ $(function() {
 <li>mAffected
 : <a class="el" href="classripple_1_1AcceptedLedgerTx.html#a129f396a4a729db5d048f4af98670590">ripple::AcceptedLedgerTx</a>
 </li>
-<li>majorityFraction
-: <a class="el" href="classripple_1_1AmendmentTable__test.html#a8d1ae28ade4149f3b3ed62ecbdeb0669">ripple::AmendmentTable_test</a>
-</li>
-<li>majorityFraction_
-: <a class="el" href="classripple_1_1AmendmentTableImpl.html#ae3822147a3cca220902d3bdf352e6ccf">ripple::AmendmentTableImpl</a>
-</li>
 <li>majorityTime_
 : <a class="el" href="classripple_1_1AmendmentTableImpl.html#a9c9272ffee37521dc61aa8baab7b8c10">ripple::AmendmentTableImpl</a>
 </li>
@@ -1050,11 +1044,13 @@ $(function() {
 <li>maxResponseSize_
 : <a class="el" href="classripple_1_1HTTPClientImp.html#af9fae2ddf1d2cb2c45dfb953a47a7bdc">ripple::HTTPClientImp</a>
 </li>
-<li>maxSeq
-: <a class="el" href="classripple_1_1detail_1_1AppFamily.html#ae5db053b47e19092d6fa5f162f09fb1c">ripple::detail::AppFamily</a>
+<li>maxSeq_
+: <a class="el" href="classripple_1_1NodeFamily.html#a0b893d398048e7ae9ff41d9887b9894b">ripple::NodeFamily</a>
+, <a class="el" href="classripple_1_1ShardFamily.html#aed5bc563d79f686c8725e1c275635277">ripple::ShardFamily</a>
 </li>
-<li>maxSeqLock
-: <a class="el" href="classripple_1_1detail_1_1AppFamily.html#a572c04f5a3c6cd080d346af97c3a9e0a">ripple::detail::AppFamily</a>
+<li>maxSeqMutex_
+: <a class="el" href="classripple_1_1NodeFamily.html#acc158cf12dc02f60d4207fba066152e9">ripple::NodeFamily</a>
+, <a class="el" href="classripple_1_1ShardFamily.html#a7c6bf01cb51f8c3783547e21dd3afa06">ripple::ShardFamily</a>
 </li>
 <li>maxSerializedCondition
 : <a class="el" href="classripple_1_1cryptoconditions_1_1Condition.html#a782066a3977c39f23995f743c2d7739d">ripple::cryptoconditions::Condition</a>
@@ -1064,6 +1060,9 @@ $(function() {
 </li>
 <li>maxSize_
 : <a class="el" href="classripple_1_1TxQ.html#a3471966efddecb2fba716304e64d1905">ripple::TxQ</a>
+</li>
+<li>maxSizeGb
+: <a class="el" href="classripple_1_1NodeStore_1_1DatabaseShard__test.html#ac2253da2d215d148b472a149badf1624">ripple::NodeStore::DatabaseShard_test</a>
 </li>
 <li>maxUInt
 : <a class="el" href="classJson_1_1Value.html#ac79e63ee68d3aa914bfd6988be669b87">Json::Value</a>
@@ -1692,7 +1691,7 @@ $(function() {
 , <a class="el" href="structripple_1_1test_1_1ValidatorSite__test_1_1FetchListConfig.html#a55eefdb4d9fe8aff9500a033a0261f28">ripple::test::ValidatorSite_test::FetchListConfig</a>
 </li>
 <li>msg_
-: <a class="el" href="classripple_1_1test_1_1LedgerHistory__test_1_1CheckMessageLogs.html#ad43232cab92a5ddc324924a7aaa4beb3">ripple::test::LedgerHistory_test::CheckMessageLogs</a>
+: <a class="el" href="classripple_1_1test_1_1CheckMessageLogs.html#a57873c1c27e43ab26ef4e5f238e127b1">ripple::test::CheckMessageLogs</a>
 </li>
 <li>msgs_
 : <a class="el" href="classripple_1_1test_1_1WSClientImpl.html#ad3379f2bf802bd7ec02608dedcc71afb">ripple::test::WSClientImpl</a>
@@ -1763,9 +1762,6 @@ $(function() {
 <li>mTargetLatencyPk
 : <a class="el" href="classripple_1_1LoadMonitor.html#ad5f71bfb73704d5b725ae6b8b93c46f3">ripple::LoadMonitor</a>
 </li>
-<li>mThreshold
-: <a class="el" href="structripple_1_1AmendmentSet.html#af755cd97d1178416ff3f12f5480acdeb">ripple::AmendmentSet</a>
-</li>
 <li>mTimeout
 : <a class="el" href="classripple_1_1HTTPClientImp.html#a403d8002bc472368fb4a5340afd4f3bc">ripple::HTTPClientImp</a>
 </li>
@@ -1790,9 +1786,6 @@ $(function() {
 </li>
 <li>mTrusted
 : <a class="el" href="classripple_1_1STValidation.html#a02433013ff252904f1d57e495873409b">ripple::STValidation</a>
-</li>
-<li>mTrustedValidations
-: <a class="el" href="structripple_1_1AmendmentSet.html#a24ef337993f889939091752abead3212">ripple::AmendmentSet</a>
 </li>
 <li>mTXid
 : <a class="el" href="classripple_1_1CanonicalTXSet_1_1Key.html#afd3338d677b20e1672b2cad35ff3e748">ripple::CanonicalTXSet::Key</a>
@@ -1845,6 +1838,7 @@ $(function() {
 , <a class="el" href="classripple_1_1AmendmentTableImpl.html#a08ceef79750994d25c0b416c378eecc0">ripple::AmendmentTableImpl</a>
 , <a class="el" href="classripple_1_1BaseHTTPPeer.html#a7738c7760df14e580ac46be84e80ec8c">ripple::BaseHTTPPeer&lt; Handler, Impl &gt;</a>
 , <a class="el" href="classripple_1_1CachedSLEs.html#a85722272fa6900285bb6a7346817e64f">ripple::CachedSLEs</a>
+, <a class="el" href="classripple_1_1CheckpointersCollection.html#a6f2b213eb135fb2d4e6db94de939d59d">ripple::CheckpointersCollection</a>
 , <a class="el" href="classripple_1_1ClosureCounter.html#a7657852232c52a27d41d6ec1a01b39a8">ripple::ClosureCounter&lt; Ret_t, Args_t &gt;</a>
 , <a class="el" href="classripple_1_1Cluster.html#ab0eef88c2f27bca8f500f9eb1714bb1d">ripple::Cluster</a>
 , <a class="el" href="classripple_1_1csprng__engine.html#a97b1006643b8f6035436b268ec9925bd">ripple::csprng_engine</a>
@@ -1856,6 +1850,7 @@ $(function() {
 , <a class="el" href="classripple_1_1LoadManager.html#adc6d73329b16ea0e6aa7c2df3f59c7b1">ripple::LoadManager</a>
 , <a class="el" href="classripple_1_1LoadMonitor.html#ab5dcc5c29ad22aef80c0a1ecb7312b8c">ripple::LoadMonitor</a>
 , <a class="el" href="classripple_1_1Logs.html#a66d24e48ab866fae608bc168c55bb60c">ripple::Logs</a>
+, <a class="el" href="classripple_1_1NegativeUNLVote.html#aa8c381a7b9dd1ea9ac0c06e03b89ca35">ripple::NegativeUNLVote</a>
 , <a class="el" href="classripple_1_1NetworkOPsImp_1_1StateAccounting.html#aa386a8916123ef2b15c4fdcd66daca35">ripple::NetworkOPsImp::StateAccounting</a>
 , <a class="el" href="classripple_1_1NodeStore_1_1DatabaseRotatingImp.html#a4d803c36c8aea67c83f735814de25717">ripple::NodeStore::DatabaseRotatingImp</a>
 , <a class="el" href="classripple_1_1NodeStore_1_1DatabaseShardImp.html#aa16a171bc9b238db86a9f9990d2dff8e">ripple::NodeStore::DatabaseShardImp</a>
@@ -1929,6 +1924,9 @@ $(function() {
 </li>
 <li>mXRPBooks
 : <a class="el" href="classripple_1_1OrderBookDB.html#a7ef6c5b59e26d6bc9ed839a8f4747370">ripple::OrderBookDB</a>
+</li>
+<li>myId_
+: <a class="el" href="classripple_1_1NegativeUNLVote.html#a31a627b1220b08b6ee258bbb6bfed61c">ripple::NegativeUNLVote</a>
 </li>
 </ul>
 </div><!-- contents -->
