@@ -23,6 +23,7 @@ for the JavaScript code in this file
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
 {text:"Related Pages",url:"pages.html"},
+{text:"Modules",url:"modules.html"},
 {text:"Namespaces",url:"namespaces.html",children:[
 {text:"Namespace List",url:"namespaces.html"},
 {text:"Namespace Members",url:"namespacemembers.html",children:[
@@ -116,7 +117,6 @@ var menudata={children:[
 {text:"n",url:"namespacemembers_type.html#index_n"},
 {text:"o",url:"namespacemembers_type.html#index_o"},
 {text:"p",url:"namespacemembers_type.html#index_p"},
-{text:"q",url:"namespacemembers_type.html#index_q"},
 {text:"r",url:"namespacemembers_type.html#index_r"},
 {text:"s",url:"namespacemembers_type.html#index_s"},
 {text:"t",url:"namespacemembers_type.html#index_t"},
@@ -130,6 +130,7 @@ var menudata={children:[
 {text:"e",url:"namespacemembers_enum.html#index_e"},
 {text:"f",url:"namespacemembers_enum.html#index_f"},
 {text:"h",url:"namespacemembers_enum.html#index_h"},
+{text:"i",url:"namespacemembers_enum.html#index_i"},
 {text:"j",url:"namespacemembers_enum.html#index_j"},
 {text:"k",url:"namespacemembers_enum.html#index_k"},
 {text:"l",url:"namespacemembers_enum.html#index_l"},
@@ -325,7 +326,6 @@ var menudata={children:[
 {text:"l",url:"functions_rela.html#index_l"},
 {text:"m",url:"functions_rela.html#index_m"},
 {text:"o",url:"functions_rela.html#index_o"},
-{text:"q",url:"functions_rela.html#index_q"},
 {text:"r",url:"functions_rela.html#index_r"},
 {text:"s",url:"functions_rela.html#index_s"},
 {text:"t",url:"functions_rela.html#index_t"},

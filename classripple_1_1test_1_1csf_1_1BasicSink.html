@@ -90,10 +90,11 @@ Collaboration diagram for ripple::test::csf::BasicSink:</div>
 <div class="dyncontent">
 <div class="center"><img src="classripple_1_1test_1_1csf_1_1BasicSink__coll__graph.png" border="0" usemap="#ripple_1_1test_1_1csf_1_1BasicSink_coll__map" alt="Collaboration graph"/></div>
 <map name="ripple_1_1test_1_1csf_1_1BasicSink_coll__map" id="ripple_1_1test_1_1csf_1_1BasicSink_coll__map">
-<area shape="rect" title="Sink that prepends simulation time to messages." alt="" coords="37,229,163,271"/>
-<area shape="rect" href="classbeast_1_1Journal_1_1Sink.html" title="Abstraction for the underlying message destination." alt="" coords="5,125,152,152"/>
-<area shape="rect" href="classbeast_1_1manual__clock.html" title=" " alt="" coords="177,111,338,167"/>
-<area shape="rect" href="classbeast_1_1abstract__clock.html" title=" " alt="" coords="177,5,338,61"/>
+<area shape="rect" title="Sink that prepends simulation time to messages." alt="" coords="37,243,163,284"/>
+<area shape="rect" href="classbeast_1_1Journal_1_1Sink.html" title="Abstraction for the underlying message destination." alt="" coords="5,139,152,165"/>
+<area shape="rect" href="classbeast_1_1manual__clock.html" title=" " alt="" coords="177,124,338,180"/>
+<area shape="rect" href="classbeast_1_1abstract__clock.html" title=" " alt="" coords="82,5,243,61"/>
+<area shape="rect" href="http://en.cppreference.com/w/cpp/chrono/time_point.html" title=" " alt="" coords="267,20,439,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -104,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b1f53b66d00387a4476fc66d573d69a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classripple_1_1test_1_1csf_1_1BasicSink.html#a1b1f53b66d00387a4476fc66d573d69a">write</a> (<a class="el" href="namespacebeast_1_1severities.html#a069a8a312b9123b77f6aa31733ca73be">beast::severities::Severity</a> level, <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> const &amp;text) override</td></tr>
 <tr class="memdesc:a1b1f53b66d00387a4476fc66d573d69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write text to the sink at the specified severity.  <a href="classripple_1_1test_1_1csf_1_1BasicSink.html#a1b1f53b66d00387a4476fc66d573d69a">More...</a><br /></td></tr>
 <tr class="separator:a1b1f53b66d00387a4476fc66d573d69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72d6f4718d1cc5c5c5d76553d8ce10df"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a72d6f4718d1cc5c5c5d76553d8ce10df">active</a> (Severity level) const</td></tr>
+<tr class="memitem:a72d6f4718d1cc5c5c5d76553d8ce10df"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a72d6f4718d1cc5c5c5d76553d8ce10df">active</a> (<a class="el" href="namespacebeast_1_1severities.html#a069a8a312b9123b77f6aa31733ca73be">Severity</a> level) const</td></tr>
 <tr class="memdesc:a72d6f4718d1cc5c5c5d76553d8ce10df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if text at the passed severity produces output.  <a href="classbeast_1_1Journal_1_1Sink.html#a72d6f4718d1cc5c5c5d76553d8ce10df">More...</a><br /></td></tr>
 <tr class="separator:a72d6f4718d1cc5c5c5d76553d8ce10df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a802ffa8580f1820bcc797592fc8fdfe2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a802ffa8580f1820bcc797592fc8fdfe2">console</a> () const</td></tr>
@@ -113,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a007194f659d13169ddab5ece28e52f54"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a007194f659d13169ddab5ece28e52f54">console</a> (bool output)</td></tr>
 <tr class="memdesc:a007194f659d13169ddab5ece28e52f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set whether messages are also written to the Output Window (MSVC).  <a href="classbeast_1_1Journal_1_1Sink.html#a007194f659d13169ddab5ece28e52f54">More...</a><br /></td></tr>
 <tr class="separator:a007194f659d13169ddab5ece28e52f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a763da4afe95c22997084ad368db9dfc1"><td class="memItemLeft" align="right" valign="top">virtual Severity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a763da4afe95c22997084ad368db9dfc1">threshold</a> () const</td></tr>
+<tr class="memitem:a763da4afe95c22997084ad368db9dfc1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacebeast_1_1severities.html#a069a8a312b9123b77f6aa31733ca73be">Severity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a763da4afe95c22997084ad368db9dfc1">threshold</a> () const</td></tr>
 <tr class="memdesc:a763da4afe95c22997084ad368db9dfc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum severity level this sink will report.  <a href="classbeast_1_1Journal_1_1Sink.html#a763da4afe95c22997084ad368db9dfc1">More...</a><br /></td></tr>
 <tr class="separator:a763da4afe95c22997084ad368db9dfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d5da921524075948fd96299d17a4763"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a3d5da921524075948fd96299d17a4763">threshold</a> (Severity thresh)</td></tr>
+<tr class="memitem:a3d5da921524075948fd96299d17a4763"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a3d5da921524075948fd96299d17a4763">threshold</a> (<a class="el" href="namespacebeast_1_1severities.html#a069a8a312b9123b77f6aa31733ca73be">Severity</a> thresh)</td></tr>
 <tr class="memdesc:a3d5da921524075948fd96299d17a4763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the minimum severity this sink will report.  <a href="classbeast_1_1Journal_1_1Sink.html#a3d5da921524075948fd96299d17a4763">More...</a><br /></td></tr>
 <tr class="separator:a3d5da921524075948fd96299d17a4763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -124,7 +125,7 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ad175da7f38fef8f3f0d9e8a915d3fd28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classripple_1_1test_1_1csf_1_1Scheduler.html#a6bec798d034260a5001335e19c3f512f">Scheduler::clock_type</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classripple_1_1test_1_1csf_1_1BasicSink.html#ad175da7f38fef8f3f0d9e8a915d3fd28">clock_</a></td></tr>
 <tr class="separator:ad175da7f38fef8f3f0d9e8a915d3fd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4901ba08ac3271fdb8fbe42607dd19f4"><td class="memItemLeft" align="right" valign="top">Severity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a4901ba08ac3271fdb8fbe42607dd19f4">thresh_</a></td></tr>
+<tr class="memitem:a4901ba08ac3271fdb8fbe42607dd19f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacebeast_1_1severities.html#a069a8a312b9123b77f6aa31733ca73be">Severity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a4901ba08ac3271fdb8fbe42607dd19f4">thresh_</a></td></tr>
 <tr class="separator:a4901ba08ac3271fdb8fbe42607dd19f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a114504ebaf3303bbfb5a507a1133639c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbeast_1_1Journal_1_1Sink.html#a114504ebaf3303bbfb5a507a1133639c">m_console</a></td></tr>
 <tr class="separator:a114504ebaf3303bbfb5a507a1133639c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -391,7 +392,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Severity beast::Journal::Sink::thresh_</td>
+          <td class="memname"><a class="el" href="namespacebeast_1_1severities.html#a069a8a312b9123b77f6aa31733ca73be">Severity</a> beast::Journal::Sink::thresh_</td>
         </tr>
       </table>
   </td>
