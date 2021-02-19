@@ -14,6 +14,45 @@ Have new ideas? Need help with setting up your node? Come visit us [here](https:
 
 # Releases
 
+## Version 1.7.0
+
+Ripple has released version 1.7.0 of `rippled`, the reference server implementation of the XRP Ledger protocol. 
+This release [significantly improves memory usage](https://blog.ripplex.io/how-ripples-c-team-cut-rippleds-memory-footprint-down-to-size/), introduces a protocol amendment to allow out-of-order transaction execution with Tickets, and brings several other features and improvements.
+
+### New and Improved Features
+
+- Implement enhanced Ticket support: Tickets are a mechanism to prepare and send certain transactions outside of the normal sequence order. This version reworks and completes the implementation for Tickets after more than 6 years of development. This feature is now open for voting as the newly-introduced `TicketBatch` amendment, which replaces the previously-proposed `Tickets` amendment. The specification for this change can be found at: [xrp-community/standards-drafts#16](https://github.com/xrp-community/standards-drafts/issues/16)
+- Optimize relaying of validation and proposal messages: Servers typically receive multiple copies of any given message from directly connected peers. For servers with several peers, this can cause redundant work. Proposal and validation messages are often relayed with extremely high redundancy. This commit introduces experimental code that attempts to optimize the relaying of proposals and validations by allowing servers to instruct their peers to "squelch" delivery of selected proposals and validations. This change is considered experimental at this time and is disabled by default because the functioning of the consensus network depends on messages propagating with high reliability through the constantly-changing peer-to-peer network. Server operators who wish to test the optimized code can enable it in their server config file.
+- Report server domain to other servers: Server operators now have the option to configure a domain name to be associated with their servers. The value is communicated to other servers and is also reported via the `server_info` API. The value is meant for third-party applications and tools to group servers together. For example, a tool that visualizes the network's topology can show how many servers are operated by different stakeholders. An operator can claim any domain, so tools should use the [xrp-ledger.toml file](https://xrpl.org/xrp-ledger-toml.html) to confirm that the domain's also claims ownership of the servers.
+- Improve handling of peers that aren't synced: When evaluating the fitness and usefulness of an outbound peer, the code would incorrectly calculate the amount of time that the peer spent in a non-useful state. This release fixes the calculation and makes the timeout values configurable by server operators. Two new options are introduced in the 'overlay' stanza of the config file. 
+- Persist API-configured voting settings: Previously, the amendments that a server would vote in support of or against could be configured both via the configuration file and via the ["feature" API method](https://xrpl.org/feature.html). Changes made in the configuration file were only loaded at server startup; changes made via the command line take effect immediately but were not persisted across restarts. Starting with this release, changes made via the API are saved to the wallet.db database file so that they persist even if the server is restarted.
+Amendment voting in the config file is deprecated. The first time the server starts with v1.7.0 or higher, it reads any amendment voting settings in the config file and saves the settings to the database; on later restarts the server prints a warning message and ignores the [amendments] and [veto_amendments] stanzas of the config file.
+Going forward, if you want to use the config file to configure amendment votes, please add a line to the [rpc_startup] stanza such as the following:
+[rpc_startup]
+{ "command": "feature", "feature": "FlowSortStrands", "vetoed": true }
+Alternatively, use the [feature method](https://xrpl.org/feature.html) to view and configure amendment votes.
+- Support UNLs with future effective dates: Updates the format for the recommended validator list file format, allowing publishers to pre-publish the next recommended UNL while the current one is still valid. The server is still backwards compatible with the previous format, but the new format removes some uncertainty during the transition from one list to the next. Also, starting with this release, the server locks down and reports an error if it has no valid validator list. You can clear the error by loading a validator list from a file or by configuring a different UNL and restarting; the error also goes away on its own if the server is able to obtain a trusted validator list from the network (for example, after an network outage resolves itself).
+- Improve manifest relaying: Servers now propagate change messages for validators' ephemeral public keys ("manifests") on a best-effort basis, to make manifests more available throughout the peer-to-peer network. Previously, the server would only relay manifests from validators it trusts locally, which made it difficult to detect and track validators that are not broadly trusted.
+- Add Reporting Mode: The server can now be compiled to operate in a new mode that serves API requests for validated ledger data without connecting directly to the peer-to-peer network. (The server needs a gRPC connection to another server that is on the peer-to-peer network.) Reporting Mode servers can share access to ledger data via Apache Cassandra and PostgreSQL to more efficiently serve API requests while peer-to-peer servers specialize in broadcasting and processing transactions.
+- Implement ledger forward replay: The server can now sync up to the network by "playing forward" transactions from a previously saved ledger until it catches up to the network. Compared with the default behavior of fetching the latest state and working backwards, forward replay can save time and bandwidth by reconstructing previous ledgers' state data rather than downloading the pre-calculated results from the network. As an added bonus, forward replay confirms that the rest of the network followed the same transaction processing rules as the local server when processing the intervening ledgers. This feature is considered experimental this time and can be enabled with an option in the config file.
+
+### Bug Fixes
+
+- Implement sticky DNS resolution for validator list retrieval: When attempting to load a validator list from a configured site, attempt to reuse the last IP that was successfully used if that IP is still present in the DNS response. This commit fixes #3494 (https://github.com/ripple/rippled/issues/3494).
+- Improve handling of RPC ledger_index argument: Some RPC commands return `ledger_index` as a quoted numeric string. This change allows the returned value to be directly copied and used for follow-on RPC commands. This commit fixes #3533 (https://github.com/ripple/rippled/issues/3533)
+- Add public_key to the "vl" method response: The "/vl" HTTP endpoint can be used to request a particular UNL from a rippled instance. This includes the public key of the requested list in the response. This commit fixes #3392 (https://github.com/ripple/rippled/issues/3392)
+- Make the transaction job queue limit adjustable: The job queue can impose limits of how many jobs of a particular type can be queued. This commit makes the previously hard-coded limit associated with transactions configurable by the server's operator. Servers that have increased memory capacity or which expect to see an influx of transactions can increase the number of transactions their server will be able to queue. This commit fixes #3556 (https://github.com/ripple/rippled/issues/3556)
+- Fix improper promotion of bool on return  [6968da1]
+- Fix ledger sequence on copynode [ef53197] 
+-  Fix parsing of node public keys in `manifest` CLI: The existing code attempts to validate the provided node public key using a function that assumes that the encoded public key is for an
+account. This causes the parsing to fail. This commit fixes #3317 (https://github.com/ripple/rippled/issues/3317) by letting the caller specify the type of the public key being checked.
+- Fix idle peer timer: This commit fixes  #3754 (https://github.com/ripple/rippled/issues/3754)
+- Add database counters: Fix bug where DatabaseRotateImp::getBackend and ::sync utilized the writable backend without a lock. ::getBackend was replaced with ::getCounters.
+- Add peers_in_max and peers_out_max configuration [70c4ecc]
+-Improve online_delete configuration and DB tuning [6e9051e]
+- Various typo and comments fixes.
+ 
+ 
 ## Version 1.6.0
 
 This release introduces several new features including changes to the XRP Ledger's consensus mechanism to make it even more robust in 
